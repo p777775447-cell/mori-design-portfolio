@@ -15,7 +15,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="font-sans text-mori-text bg-mori-light">
+    <div className="font-sans text-mori-800">
       <Navbar />
       <main>
         <Hero />

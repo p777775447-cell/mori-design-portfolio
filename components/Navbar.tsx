@@ -33,16 +33,16 @@ const Navbar: React.FC = () => {
   ];
 
   // Dynamic text color class based on scroll state
-  const textColorClass = isScrolled ? 'text-mori-text' : 'text-white';
-  const logoColorClass = isScrolled ? 'text-mori-dark' : 'text-white';
+  const textColorClass = isScrolled ? 'text-mori-800' : 'text-white';
+  const logoColorClass = isScrolled ? 'text-mori-900' : 'text-white';
   const buttonClass = isScrolled 
-    ? 'bg-mori-dark text-white hover:bg-black' 
-    : 'bg-white text-mori-dark hover:bg-mori-100';
+    ? 'bg-mori-800 text-white hover:bg-mori-600' 
+    : 'bg-white text-mori-900 hover:bg-mori-100';
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-8'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-mori-50/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -55,19 +55,19 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-10">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <button
               key={link.name}
               onClick={() => scrollToSection(link.id)}
-              className={`text-sm tracking-widest font-serif transition-colors duration-300 hover:opacity-70 ${textColorClass}`}
+              className={`text-sm tracking-wide transition-colors duration-300 hover:opacity-70 ${textColorClass}`}
             >
               {link.name}
             </button>
           ))}
           <button
             onClick={() => scrollToSection('contact')}
-            className={`px-8 py-2 rounded-sm text-xs tracking-widest font-medium transition-all duration-300 shadow-md ${buttonClass}`}
+            className={`px-6 py-2 rounded-sm text-sm tracking-wide transition-all duration-300 shadow-md ${buttonClass}`}
           >
             立即預約諮詢
           </button>
@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-mori-light z-40 flex flex-col items-center justify-center space-y-8 transform transition-transform duration-500 ease-in-out md:hidden ${
+        className={`fixed inset-0 bg-mori-50 z-40 flex flex-col items-center justify-center space-y-8 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -94,14 +94,14 @@ const Navbar: React.FC = () => {
           <button
             key={link.name}
             onClick={() => scrollToSection(link.id)}
-            className="font-serif text-2xl text-mori-dark hover:text-mori-500 tracking-widest"
+            className="font-serif text-2xl text-mori-800 hover:text-mori-500"
           >
             {link.name}
           </button>
         ))}
         <button
           onClick={() => scrollToSection('contact')}
-          className="mt-8 bg-mori-dark text-white px-10 py-4 rounded-sm text-sm uppercase tracking-widest hover:bg-black transition-colors"
+          className="mt-8 bg-mori-800 text-white px-8 py-3 rounded-sm text-lg tracking-wide hover:bg-mori-600"
         >
           立即預約諮詢
         </button>

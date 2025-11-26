@@ -12,38 +12,44 @@ const Hero: React.FC = () => {
           backgroundPosition: 'center',
         }}
       >
-        {/* Slightly lighter overlay for immersive feel, darker at bottom */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+        {/* Darker overlay (black/60) to make white text pop */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        
+        {/* Gradient at the bottom to blend with the next section */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-mori-50 to-transparent"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8">
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-widest text-white drop-shadow-xl animate-fade-in-up">
-          空間敘事，<br className="md:hidden" />回歸自然
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8 mt-20">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-medium leading-tight text-mori-50 drop-shadow-lg">
+          不只是設計，<br />
+          更是為您預留生活的餘裕
         </h1>
         
-        <div className="w-16 h-[1px] bg-white/70 mx-auto my-8 animate-fade-in-up animation-delay-300"></div>
-
-        <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto font-light tracking-widest leading-loose animate-fade-in-up animation-delay-500">
-          不只是設計，更是為您預留生活的餘裕。<br />
-          專注於光影與動線，將您的日常化為最令人眷戀的風景。
+        <p className="text-base md:text-xl text-mori-200 max-w-2xl mx-auto font-light tracking-wide leading-relaxed drop-shadow-md">
+          專注於光影與動線的空間魔術師，<br className="hidden md:block" />
+          將您的日常，化為最令人眷戀的風景。
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-16 animate-fade-in-up animation-delay-500">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
           <button 
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-full sm:w-auto px-10 py-4 border border-white/80 text-white hover:bg-white hover:text-mori-dark transition-all duration-500 uppercase tracking-[0.2em] text-xs font-medium"
+            className="w-full sm:w-auto px-8 py-3 border border-mori-50 text-mori-50 hover:bg-mori-50 hover:text-mori-900 transition-all duration-300 uppercase tracking-widest text-sm font-medium"
           >
-            VIEW PROJECTS
+            查看精選案例
+          </button>
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto px-8 py-3 bg-white text-mori-900 border border-white hover:bg-mori-200 hover:border-mori-200 transition-all duration-300 uppercase tracking-widest text-sm shadow-lg font-medium"
+          >
+            免費諮詢報價
           </button>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70">
-        <span className="block text-[10px] tracking-widest mb-2 uppercase">Scroll</span>
-        <i className="fa-solid fa-chevron-down text-sm opacity-70"></i>
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-mori-50">
+        <i className="fa-solid fa-chevron-down text-xl opacity-70"></i>
       </div>
     </section>
   );
